@@ -11,7 +11,7 @@ from sklearn.cluster import KMeans
 #from pycave.bayes import GMM
 from sklearn.mixture import GaussianMixture as GMM
 from torch.nn.modules.linear import Linear
-from torchmeta.modules import MetaLinear, MetaSequential, MetaModule
+from utils.torchmeta_modules import MetaLinear, MetaModule
 from tqdm import tqdm
 import random as rd
 import json
