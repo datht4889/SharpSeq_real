@@ -88,7 +88,7 @@ class Config:
     input_dim: int = 2048
     hidden_dim: int = 512   
     max_slots: int = 169
-    perm_id: int = 3
+    perm_id: int = 4
     
     # GPU settings.
     no_gpu: bool = False
