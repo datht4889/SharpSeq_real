@@ -156,6 +156,7 @@ class Config:
     p: float = 0.2
     num_sam_loss: int = 2
     sam: int = 1
+    sam_optimizer: str = "SAM"
 
 
 
