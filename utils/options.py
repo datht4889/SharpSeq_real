@@ -78,7 +78,7 @@ class Config:
     feature_root: str = "/kaggle/input/sharpseq-features"
     stream_file: str = "/kaggle/working/ACE/streams.json"
     save_model: str = "model"
-    load_model: str = ""
+    load_model: str = "/kaggle/working/checkpoint"
     log_dir: str = "./log/"
     
     # Model parameters.
