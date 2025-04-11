@@ -79,14 +79,14 @@ class Config:
     stream_file: str = "/kaggle/working/ACE/streams.json"
     save_model: str = "model"
     load_model: str = "/kaggle/working/checkpoint"
-    log_dir: str = "./log/"
+    log_dir: str = "/kaggle/working/log"
     
     # Model parameters.
     batch_size: int = 128
     init_slots: int = 13
     patience: int = 5
     input_dim: int = 2048
-    hidden_dim: int = 512
+    hidden_dim: int = 512   
     max_slots: int = 169
     perm_id: int = 0
     
