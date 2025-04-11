@@ -145,7 +145,7 @@ class LInEx(MetaModule):
         self.gen_labels = []
         self.trained_replay = set()
         self.trained_generate = set()
-        self.alpha = torch.nn.Parameter(torch.normal(torch.zeros(input_dim), torch.ones(input_dim)*-1)).to(self.device)
+        # self.alpha = torch.nn.Parameter(torch.normal(torch.zeros(input_dim), torch.ones(input_dim)*-1)).to(self.device)
         with open("data/MAVEN/streams.json") as f:
             task2id = json.load(f)
             id2task = {}
