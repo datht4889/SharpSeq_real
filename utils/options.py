@@ -88,7 +88,7 @@ class Config:
     input_dim: int = 2048
     hidden_dim: int = 512   
     max_slots: int = 169
-    perm_id: int = 4
+    perm_id: int = 0
     
     # GPU settings.
     no_gpu: bool = False
@@ -156,7 +156,7 @@ class Config:
     p: float = 0.2
     num_sam_loss: int = 2
     sam: int = 1
-    sam_optimizer: str = "SAM"
+    sam_optimizer: str = "FriendlySAM"
 
 
 

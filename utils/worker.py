@@ -11,7 +11,7 @@ import gc
 import traceback
 from utils.options import parse_arguments
 from .weight_methods import WeightMethods, PCGrad, IMTLG, MGDA
-from .sam import SAM
+from .sam import *
 opts = parse_arguments()
 if opts.mul_task_type == 'NashMTL':
     from .weight_methods import NashMTL
@@ -169,7 +169,23 @@ class Worker(object):
                 model.balance_na = self.balance_na
                 
                 #initialize sam optimizer
-                self.sam_optimizer = SAM(model.parameters(), torch.optim.AdamW, lr=1e-4, weight_decay=1e-2)
+                # self.sam_optimizer = SAM(model.parameters(), torch.optim.AdamW, lr=1e-4, weight_decay=1e-2)
+                base_optimizer = torch.optim.AdamW
+                if opts.sam_optimizer == 'SAM':
+                    self.sam_optimizer = SAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2)             
+                elif opts.sam_optimizer == 'FriendlySAM':
+                    self.sam_optimizer = FriendlySAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2) 
+                elif opts.sam_optimizer == 'TRAM':
+                    self.sam_optimizer = TRAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2) 
+                elif opts.sam_optimizer == 'ASAM':
+                    self.sam_optimizer = ASAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2)
+                elif opts.sam_optimizer == 'GCSAM':
+                    self.sam_optimizer = GCSAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2) 
+                elif opts.sam_optimizer == 'LookbehindASAM':
+                    self.sam_optimizer = LookbehindASAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2) 
+                elif opts.sam_optimizer == 'ESAM':
+                    self.sam_optimizer = ESAM(model.parameters(), base_optimizer, lr=1e-4, weight_decay=1e-2) 
+
             if optimizer is None:
                 raise ValueError("training requires valid optimizer")
         else:
